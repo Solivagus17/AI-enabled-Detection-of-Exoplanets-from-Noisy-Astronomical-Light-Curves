@@ -2,7 +2,7 @@
     "TIC 261136679": {
         "tic_id": "TIC 261136679",
         "class": "transit",
-        "confidence": 0.1449,
+        "confidence": 0.3937,
         "period_days": 0.6085,
         "period_err": 0.0284,
         "depth_ppm": 219,
@@ -10,12 +10,12 @@
         "duration_hrs": 0.29,
         "duration_err": 0.02,
         "snr": 3.32,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 150428135": {
         "tic_id": "TIC 150428135",
         "class": "transit",
-        "confidence": 0.1508,
+        "confidence": 0.3949,
         "period_days": 4.7744,
         "period_err": 0.0248,
         "depth_ppm": 260,
@@ -23,12 +23,12 @@
         "duration_hrs": 1.72,
         "duration_err": 0.26,
         "snr": 3.49,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 307210830": {
         "tic_id": "TIC 307210830",
         "class": "transit",
-        "confidence": 0.1382,
+        "confidence": 0.3948,
         "period_days": 7.2137,
         "period_err": 0.0267,
         "depth_ppm": 242,
@@ -36,12 +36,12 @@
         "duration_hrs": 2.6,
         "duration_err": 0.35,
         "snr": 3.12,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 231663901": {
         "tic_id": "TIC 231663901",
         "class": "transit",
-        "confidence": 0.1449,
+        "confidence": 0.3933,
         "period_days": 0.8376,
         "period_err": 0.0256,
         "depth_ppm": 217,
@@ -49,12 +49,12 @@
         "duration_hrs": 0.5,
         "duration_err": 0.05,
         "snr": 3.32,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 460205581": {
         "tic_id": "TIC 460205581",
         "class": "transit",
-        "confidence": 0.1453,
+        "confidence": 0.3911,
         "period_days": 0.5537,
         "period_err": 0.0157,
         "depth_ppm": 236,
@@ -62,12 +62,12 @@
         "duration_hrs": 0.2,
         "duration_err": 0.02,
         "snr": 3.33,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 349488688": {
         "tic_id": "TIC 349488688",
         "class": "transit",
-        "confidence": 0.2298,
+        "confidence": 0.3939,
         "period_days": 4.4143,
         "period_err": 0.0227,
         "depth_ppm": 394,
@@ -75,12 +75,12 @@
         "duration_hrs": 1.59,
         "duration_err": 0.16,
         "snr": 6.36,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 238004786": {
         "tic_id": "TIC 238004786",
         "class": "transit",
-        "confidence": 0.2093,
+        "confidence": 0.3952,
         "period_days": 8.77,
         "period_err": 0.0174,
         "depth_ppm": 352,
@@ -88,12 +88,12 @@
         "duration_hrs": 3.16,
         "duration_err": 0.44,
         "snr": 5.5,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 374109519": {
         "tic_id": "TIC 374109519",
         "class": "transit",
-        "confidence": 0.1808,
+        "confidence": 0.3934,
         "period_days": 5.0016,
         "period_err": 0.0226,
         "depth_ppm": 325,
@@ -101,12 +101,12 @@
         "duration_hrs": 2.4,
         "duration_err": 0.33,
         "snr": 4.45,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 441420236": {
         "tic_id": "TIC 441420236",
         "class": "transit",
-        "confidence": 0.1572,
+        "confidence": 0.3944,
         "period_days": 2.4834,
         "period_err": 0.0206,
         "depth_ppm": 268,
@@ -114,12 +114,12 @@
         "duration_hrs": 1.19,
         "duration_err": 0.21,
         "snr": 3.69,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 179317684": {
         "tic_id": "TIC 179317684",
         "class": "transit",
-        "confidence": 0.1513,
+        "confidence": 0.3926,
         "period_days": 1.6349,
         "period_err": 0.0257,
         "depth_ppm": 250,
@@ -127,12 +127,12 @@
         "duration_hrs": 0.59,
         "duration_err": 0.08,
         "snr": 3.51,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 207110080": {
         "tic_id": "TIC 207110080",
         "class": "transit",
-        "confidence": 0.155,
+        "confidence": 0.3931,
         "period_days": 0.6861,
         "period_err": 0.0182,
         "depth_ppm": 246,
@@ -140,12 +140,12 @@
         "duration_hrs": 0.25,
         "duration_err": 0.05,
         "snr": 3.62,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 408636441": {
         "tic_id": "TIC 408636441",
         "class": "transit",
-        "confidence": 0.1768,
+        "confidence": 0.3921,
         "period_days": 0.6846,
         "period_err": 0.0209,
         "depth_ppm": 303,
@@ -153,12 +153,12 @@
         "duration_hrs": 0.41,
         "duration_err": 0.1,
         "snr": 4.32,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 142087638": {
         "tic_id": "TIC 142087638",
         "class": "transit",
-        "confidence": 0.1646,
+        "confidence": 0.3927,
         "period_days": 1.4098,
         "period_err": 0.0301,
         "depth_ppm": 268,
@@ -166,12 +166,12 @@
         "duration_hrs": 0.51,
         "duration_err": 0.08,
         "snr": 3.92,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 394050135": {
         "tic_id": "TIC 394050135",
         "class": "transit",
-        "confidence": 0.1522,
+        "confidence": 0.3939,
         "period_days": 2.4184,
         "period_err": 0.0229,
         "depth_ppm": 237,
@@ -179,12 +179,12 @@
         "duration_hrs": 0.87,
         "duration_err": 0.11,
         "snr": 3.53,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 198456033": {
         "tic_id": "TIC 198456033",
         "class": "transit",
-        "confidence": 0.1238,
+        "confidence": 0.3926,
         "period_days": 1.6678,
         "period_err": 0.0297,
         "depth_ppm": 212,
@@ -192,12 +192,12 @@
         "duration_hrs": 0.6,
         "duration_err": 0.13,
         "snr": 2.73,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 261867566": {
         "tic_id": "TIC 261867566",
         "class": "transit",
-        "confidence": 0.1604,
+        "confidence": 0.3942,
         "period_days": 0.5985,
         "period_err": 0.0199,
         "depth_ppm": 157,
@@ -205,12 +205,12 @@
         "duration_hrs": 0.22,
         "duration_err": 0.02,
         "snr": 3.79,
-        "anomaly_score": 2e-08
+        "anomaly_score": 0.0
     },
     "TIC 120896927": {
         "tic_id": "TIC 120896927",
         "class": "transit",
-        "confidence": 0.1487,
+        "confidence": 0.3908,
         "period_days": 1.7968,
         "period_err": 0.0141,
         "depth_ppm": 244,
@@ -218,12 +218,12 @@
         "duration_hrs": 0.65,
         "duration_err": 0.06,
         "snr": 3.43,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 167215941": {
         "tic_id": "TIC 167215941",
         "class": "transit",
-        "confidence": 0.1617,
+        "confidence": 0.3927,
         "period_days": 9.9817,
         "period_err": 0.0316,
         "depth_ppm": 278,
@@ -231,12 +231,12 @@
         "duration_hrs": 4.79,
         "duration_err": 0.61,
         "snr": 3.82,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 219854519": {
         "tic_id": "TIC 219854519",
         "class": "transit",
-        "confidence": 0.1587,
+        "confidence": 0.3926,
         "period_days": 1.7525,
         "period_err": 0.0074,
         "depth_ppm": 245,
@@ -244,12 +244,12 @@
         "duration_hrs": 0.63,
         "duration_err": 0.06,
         "snr": 3.73,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 254113311": {
         "tic_id": "TIC 254113311",
         "class": "transit",
-        "confidence": 0.1437,
+        "confidence": 0.3938,
         "period_days": 2.2479,
         "period_err": 0.0196,
         "depth_ppm": 240,
@@ -257,12 +257,12 @@
         "duration_hrs": 1.08,
         "duration_err": 0.14,
         "snr": 3.28,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 101955023": {
         "tic_id": "TIC 101955023",
         "class": "transit",
-        "confidence": 0.2036,
+        "confidence": 0.3923,
         "period_days": 1.9129,
         "period_err": 0.0252,
         "depth_ppm": 339,
@@ -270,12 +270,12 @@
         "duration_hrs": 0.92,
         "duration_err": 0.24,
         "snr": 5.28,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 229742722": {
         "tic_id": "TIC 229742722",
         "class": "transit",
-        "confidence": 0.1452,
+        "confidence": 0.3936,
         "period_days": 2.3931,
         "period_err": 0.0252,
         "depth_ppm": 251,
@@ -283,12 +283,12 @@
         "duration_hrs": 1.15,
         "duration_err": 0.17,
         "snr": 3.33,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 280206394": {
         "tic_id": "TIC 280206394",
         "class": "transit",
-        "confidence": 0.1866,
+        "confidence": 0.3915,
         "period_days": 0.622,
         "period_err": 0.0193,
         "depth_ppm": 367,
@@ -296,12 +296,12 @@
         "duration_hrs": 0.22,
         "duration_err": 0.02,
         "snr": 4.65,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 158588995": {
         "tic_id": "TIC 158588995",
         "class": "transit",
-        "confidence": 0.1506,
+        "confidence": 0.3913,
         "period_days": 0.6617,
         "period_err": 0.0209,
         "depth_ppm": 281,
@@ -309,12 +309,12 @@
         "duration_hrs": 0.24,
         "duration_err": 0.03,
         "snr": 3.49,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 264979636": {
         "tic_id": "TIC 264979636",
         "class": "transit",
-        "confidence": 0.1303,
+        "confidence": 0.3936,
         "period_days": 0.583,
         "period_err": 0.0257,
         "depth_ppm": 207,
@@ -322,12 +322,12 @@
         "duration_hrs": 0.28,
         "duration_err": 0.03,
         "snr": 2.9,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 349827430": {
         "tic_id": "TIC 349827430",
         "class": "transit",
-        "confidence": 0.1843,
+        "confidence": 0.3939,
         "period_days": 6.4044,
         "period_err": 0.0205,
         "depth_ppm": 370,
@@ -335,12 +335,12 @@
         "duration_hrs": 2.31,
         "duration_err": 0.43,
         "snr": 4.57,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 336743061": {
         "tic_id": "TIC 336743061",
         "class": "transit",
-        "confidence": 0.1412,
+        "confidence": 0.3926,
         "period_days": 4.4991,
         "period_err": 0.0225,
         "depth_ppm": 252,
@@ -348,12 +348,12 @@
         "duration_hrs": 2.16,
         "duration_err": 0.25,
         "snr": 3.21,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 147950620": {
         "tic_id": "TIC 147950620",
         "class": "transit",
-        "confidence": 0.1385,
+        "confidence": 0.3919,
         "period_days": 0.6725,
         "period_err": 0.0138,
         "depth_ppm": 214,
@@ -361,12 +361,12 @@
         "duration_hrs": 0.24,
         "duration_err": 0.02,
         "snr": 3.13,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 199376584": {
         "tic_id": "TIC 199376584",
         "class": "transit",
-        "confidence": 0.1573,
+        "confidence": 0.3934,
         "period_days": 1.4023,
         "period_err": 0.0118,
         "depth_ppm": 281,
@@ -374,12 +374,12 @@
         "duration_hrs": 0.5,
         "duration_err": 0.06,
         "snr": 3.69,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 271893367": {
         "tic_id": "TIC 271893367",
         "class": "transit",
-        "confidence": 0.127,
+        "confidence": 0.3912,
         "period_days": 0.9128,
         "period_err": 0.0226,
         "depth_ppm": 237,
@@ -387,12 +387,12 @@
         "duration_hrs": 0.44,
         "duration_err": 0.06,
         "snr": 2.81,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 303317324": {
         "tic_id": "TIC 303317324",
         "class": "transit",
-        "confidence": 0.1336,
+        "confidence": 0.3939,
         "period_days": 4.0226,
         "period_err": 0.0111,
         "depth_ppm": 233,
@@ -400,12 +400,12 @@
         "duration_hrs": 1.45,
         "duration_err": 0.27,
         "snr": 3.0,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 415969908": {
         "tic_id": "TIC 415969908",
         "class": "transit",
-        "confidence": 0.1805,
+        "confidence": 0.3962,
         "period_days": 0.823,
         "period_err": 0.0205,
         "depth_ppm": 343,
@@ -413,12 +413,12 @@
         "duration_hrs": 0.3,
         "duration_err": 0.02,
         "snr": 4.44,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 254113312": {
         "tic_id": "TIC 254113312",
         "class": "transit",
-        "confidence": 0.1484,
+        "confidence": 0.3923,
         "period_days": 2.2183,
         "period_err": 0.0217,
         "depth_ppm": 269,
@@ -426,12 +426,12 @@
         "duration_hrs": 0.8,
         "duration_err": 0.13,
         "snr": 3.42,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 144700903": {
         "tic_id": "TIC 144700903",
         "class": "transit",
-        "confidence": 0.1466,
+        "confidence": 0.3947,
         "period_days": 2.5725,
         "period_err": 0.0163,
         "depth_ppm": 292,
@@ -439,12 +439,12 @@
         "duration_hrs": 0.93,
         "duration_err": 0.16,
         "snr": 3.37,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 460984940": {
         "tic_id": "TIC 460984940",
         "class": "transit",
-        "confidence": 0.153,
+        "confidence": 0.3947,
         "period_days": 13.9277,
         "period_err": 0.03,
         "depth_ppm": 298,
@@ -452,12 +452,12 @@
         "duration_hrs": 5.01,
         "duration_err": 0.63,
         "snr": 3.56,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 355867695": {
         "tic_id": "TIC 355867695",
         "class": "transit",
-        "confidence": 0.1466,
+        "confidence": 0.3936,
         "period_days": 2.64,
         "period_err": 0.0038,
         "depth_ppm": 245,
@@ -465,12 +465,12 @@
         "duration_hrs": 1.58,
         "duration_err": 0.18,
         "snr": 3.37,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 241249543": {
         "tic_id": "TIC 241249543",
         "class": "transit",
-        "confidence": 0.1788,
+        "confidence": 0.3954,
         "period_days": 1.8384,
         "period_err": 0.0164,
         "depth_ppm": 263,
@@ -478,12 +478,12 @@
         "duration_hrs": 1.1,
         "duration_err": 0.16,
         "snr": 4.38,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 470710327": {
         "tic_id": "TIC 470710327",
         "class": "transit",
-        "confidence": 0.1453,
+        "confidence": 0.395,
         "period_days": 5.3149,
         "period_err": 0.032,
         "depth_ppm": 244,
@@ -491,12 +491,12 @@
         "duration_hrs": 1.91,
         "duration_err": 0.27,
         "snr": 3.33,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 352682207": {
         "tic_id": "TIC 352682207",
         "class": "transit",
-        "confidence": 0.1356,
+        "confidence": 0.391,
         "period_days": 1.5898,
         "period_err": 0.0216,
         "depth_ppm": 211,
@@ -504,12 +504,12 @@
         "duration_hrs": 0.76,
         "duration_err": 0.1,
         "snr": 3.05,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 101683785": {
         "tic_id": "TIC 101683785",
         "class": "transit",
-        "confidence": 0.1752,
+        "confidence": 0.3942,
         "period_days": 5.0646,
         "period_err": 0.022,
         "depth_ppm": 318,
@@ -517,12 +517,12 @@
         "duration_hrs": 2.43,
         "duration_err": 0.35,
         "snr": 4.26,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 167602025": {
         "tic_id": "TIC 167602025",
         "class": "transit",
-        "confidence": 0.1694,
+        "confidence": 0.3956,
         "period_days": 5.4868,
         "period_err": 0.0166,
         "depth_ppm": 323,
@@ -530,12 +530,12 @@
         "duration_hrs": 2.63,
         "duration_err": 0.34,
         "snr": 4.07,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 264468702": {
         "tic_id": "TIC 264468702",
         "class": "transit",
-        "confidence": 0.1623,
+        "confidence": 0.3947,
         "period_days": 10.7974,
         "period_err": 0.0246,
         "depth_ppm": 286,
@@ -543,12 +543,12 @@
         "duration_hrs": 3.89,
         "duration_err": 0.51,
         "snr": 3.85,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 219107776": {
         "tic_id": "TIC 219107776",
         "class": "transit",
-        "confidence": 0.1262,
+        "confidence": 0.3947,
         "period_days": 6.9041,
         "period_err": 0.0044,
         "depth_ppm": 178,
@@ -556,12 +556,12 @@
         "duration_hrs": 4.14,
         "duration_err": 0.29,
         "snr": 2.79,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 300651846": {
         "tic_id": "TIC 300651846",
         "class": "transit",
-        "confidence": 0.1588,
+        "confidence": 0.3921,
         "period_days": 1.6037,
         "period_err": 0.0211,
         "depth_ppm": 263,
@@ -569,12 +569,12 @@
         "duration_hrs": 0.58,
         "duration_err": 0.07,
         "snr": 3.74,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 284925600": {
         "tic_id": "TIC 284925600",
         "class": "transit",
-        "confidence": 0.1761,
+        "confidence": 0.3933,
         "period_days": 0.8768,
         "period_err": 0.022,
         "depth_ppm": 246,
@@ -582,12 +582,12 @@
         "duration_hrs": 0.32,
         "duration_err": 0.04,
         "snr": 4.29,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 336731635": {
         "tic_id": "TIC 336731635",
         "class": "transit",
-        "confidence": 0.169,
+        "confidence": 0.3922,
         "period_days": 1.5221,
         "period_err": 0.0267,
         "depth_ppm": 277,
@@ -595,12 +595,12 @@
         "duration_hrs": 0.55,
         "duration_err": 0.06,
         "snr": 4.06,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 201248411": {
         "tic_id": "TIC 201248411",
         "class": "transit",
-        "confidence": 0.3674,
+        "confidence": 0.3902,
         "period_days": 0.8094,
         "period_err": 0.0126,
         "depth_ppm": 1035,
@@ -608,12 +608,12 @@
         "duration_hrs": 0.39,
         "duration_err": 0.05,
         "snr": 20.78,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 243187688": {
         "tic_id": "TIC 243187688",
         "class": "transit",
-        "confidence": 0.2303,
+        "confidence": 0.3897,
         "period_days": 0.5298,
         "period_err": 0.0217,
         "depth_ppm": 336,
@@ -621,12 +621,12 @@
         "duration_hrs": 0.19,
         "duration_err": 0.02,
         "snr": 6.39,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 406717909": {
         "tic_id": "TIC 406717909",
         "class": "transit",
-        "confidence": 0.1925,
+        "confidence": 0.393,
         "period_days": 1.3972,
         "period_err": 0.0286,
         "depth_ppm": 284,
@@ -634,12 +634,12 @@
         "duration_hrs": 0.5,
         "duration_err": 0.11,
         "snr": 4.87,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 229055790": {
         "tic_id": "TIC 229055790",
         "class": "transit",
-        "confidence": 0.1443,
+        "confidence": 0.3938,
         "period_days": 0.6692,
         "period_err": 0.0066,
         "depth_ppm": 155,
@@ -647,12 +647,12 @@
         "duration_hrs": 0.24,
         "duration_err": 0.02,
         "snr": 3.3,
-        "anomaly_score": 2e-08
+        "anomaly_score": 0.0
     },
     "TIC 158483272": {
         "tic_id": "TIC 158483272",
         "class": "transit",
-        "confidence": 0.1716,
+        "confidence": 0.393,
         "period_days": 5.0632,
         "period_err": 0.0348,
         "depth_ppm": 276,
@@ -660,12 +660,12 @@
         "duration_hrs": 1.82,
         "duration_err": 0.35,
         "snr": 4.14,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 092449501": {
         "tic_id": "TIC 092449501",
         "class": "transit",
-        "confidence": 0.2063,
+        "confidence": 0.3929,
         "period_days": 1.1312,
         "period_err": 0.0264,
         "depth_ppm": 311,
@@ -673,12 +673,12 @@
         "duration_hrs": 0.41,
         "duration_err": 0.04,
         "snr": 5.38,
-        "anomaly_score": 2e-08
+        "anomaly_score": 0.0
     },
     "TIC 332558858": {
         "tic_id": "TIC 332558858",
         "class": "transit",
-        "confidence": 0.1843,
+        "confidence": 0.3936,
         "period_days": 5.8458,
         "period_err": 0.0106,
         "depth_ppm": 274,
@@ -686,12 +686,12 @@
         "duration_hrs": 2.1,
         "duration_err": 0.36,
         "snr": 4.57,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 141608198": {
         "tic_id": "TIC 141608198",
         "class": "transit",
-        "confidence": 0.198,
+        "confidence": 0.3941,
         "period_days": 9.018,
         "period_err": 0.0253,
         "depth_ppm": 259,
@@ -699,12 +699,12 @@
         "duration_hrs": 3.25,
         "duration_err": 0.44,
         "snr": 5.07,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 159497012": {
         "tic_id": "TIC 159497012",
         "class": "transit",
-        "confidence": 0.1573,
+        "confidence": 0.3914,
         "period_days": 0.5476,
         "period_err": 0.0298,
         "depth_ppm": 292,
@@ -712,12 +712,12 @@
         "duration_hrs": 0.2,
         "duration_err": 0.04,
         "snr": 3.69,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 234523599": {
         "tic_id": "TIC 234523599",
         "class": "transit",
-        "confidence": 0.2023,
+        "confidence": 0.3933,
         "period_days": 1.3793,
         "period_err": 0.0251,
         "depth_ppm": 324,
@@ -725,12 +725,12 @@
         "duration_hrs": 0.5,
         "duration_err": 0.11,
         "snr": 5.23,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 281541555": {
         "tic_id": "TIC 281541555",
         "class": "transit",
-        "confidence": 0.1261,
+        "confidence": 0.3919,
         "period_days": 4.8918,
         "period_err": 0.0274,
         "depth_ppm": 195,
@@ -738,12 +738,12 @@
         "duration_hrs": 1.76,
         "duration_err": 0.28,
         "snr": 2.79,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 397362481": {
         "tic_id": "TIC 397362481",
         "class": "transit",
-        "confidence": 0.1349,
+        "confidence": 0.3921,
         "period_days": 1.5456,
         "period_err": 0.0286,
         "depth_ppm": 168,
@@ -751,12 +751,12 @@
         "duration_hrs": 0.56,
         "duration_err": 0.07,
         "snr": 3.03,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 142276270": {
         "tic_id": "TIC 142276270",
         "class": "transit",
-        "confidence": 0.1607,
+        "confidence": 0.3929,
         "period_days": 3.8058,
         "period_err": 0.0202,
         "depth_ppm": 247,
@@ -764,12 +764,12 @@
         "duration_hrs": 1.37,
         "duration_err": 0.26,
         "snr": 3.8,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 153065527": {
         "tic_id": "TIC 153065527",
         "class": "transit",
-        "confidence": 0.2347,
+        "confidence": 0.3932,
         "period_days": 2.0168,
         "period_err": 0.0094,
         "depth_ppm": 344,
@@ -777,12 +777,12 @@
         "duration_hrs": 0.73,
         "duration_err": 0.27,
         "snr": 6.59,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 290024512": {
         "tic_id": "TIC 290024512",
         "class": "transit",
-        "confidence": 0.1626,
+        "confidence": 0.3894,
         "period_days": 0.5063,
         "period_err": 0.0129,
         "depth_ppm": 243,
@@ -790,12 +790,12 @@
         "duration_hrs": 0.18,
         "duration_err": 0.03,
         "snr": 3.85,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 388459317": {
         "tic_id": "TIC 388459317",
         "class": "transit",
-        "confidence": 0.3881,
+        "confidence": 0.3818,
         "period_days": 0.8811,
         "period_err": 0.0,
         "depth_ppm": 4142,
@@ -808,7 +808,7 @@
     "TIC 441504528": {
         "tic_id": "TIC 441504528",
         "class": "transit",
-        "confidence": 0.1746,
+        "confidence": 0.3947,
         "period_days": 1.0383,
         "period_err": 0.0219,
         "depth_ppm": 263,
@@ -816,12 +816,12 @@
         "duration_hrs": 0.37,
         "duration_err": 0.06,
         "snr": 4.24,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 469901995": {
         "tic_id": "TIC 469901995",
         "class": "transit",
-        "confidence": 0.1831,
+        "confidence": 0.394,
         "period_days": 0.7842,
         "period_err": 0.0243,
         "depth_ppm": 256,
@@ -829,12 +829,12 @@
         "duration_hrs": 0.28,
         "duration_err": 0.07,
         "snr": 4.53,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 271478281": {
         "tic_id": "TIC 271478281",
         "class": "transit",
-        "confidence": 0.3532,
+        "confidence": 0.3832,
         "period_days": 3.9734,
         "period_err": 0.0028,
         "depth_ppm": 1738,
@@ -847,7 +847,7 @@
     "TIC 124742545": {
         "tic_id": "TIC 124742545",
         "class": "transit",
-        "confidence": 0.3503,
+        "confidence": 0.3872,
         "period_days": 2.5593,
         "period_err": 0.0017,
         "depth_ppm": 1444,
@@ -860,7 +860,7 @@
     "TIC 362249359": {
         "tic_id": "TIC 362249359",
         "class": "transit",
-        "confidence": 0.36,
+        "confidence": 0.3913,
         "period_days": 4.4937,
         "period_err": 0.0039,
         "depth_ppm": 1615,
@@ -868,12 +868,12 @@
         "duration_hrs": 1.62,
         "duration_err": 0.19,
         "snr": 18.63,
-        "anomaly_score": 4e-08
+        "anomaly_score": 3e-08
     },
     "TIC 441765914": {
         "tic_id": "TIC 441765914",
         "class": "transit",
-        "confidence": 0.3699,
+        "confidence": 0.3891,
         "period_days": 3.7747,
         "period_err": 0.0017,
         "depth_ppm": 1809,
@@ -881,12 +881,12 @@
         "duration_hrs": 1.36,
         "duration_err": 0.15,
         "snr": 21.68,
-        "anomaly_score": 4e-08
+        "anomaly_score": 3e-08
     },
     "TIC 158540376": {
         "tic_id": "TIC 158540376",
         "class": "transit",
-        "confidence": 0.3756,
+        "confidence": 0.3818,
         "period_days": 2.9036,
         "period_err": 0.0,
         "depth_ppm": 1816,
@@ -899,7 +899,7 @@
     "TIC 207141131": {
         "tic_id": "TIC 207141131",
         "class": "transit",
-        "confidence": 0.3434,
+        "confidence": 0.3915,
         "period_days": 4.0402,
         "period_err": 0.0021,
         "depth_ppm": 1310,
@@ -907,12 +907,12 @@
         "duration_hrs": 1.45,
         "duration_err": 0.0,
         "snr": 15.34,
-        "anomaly_score": 4e-08
+        "anomaly_score": 2e-08
     },
     "TIC 289399472": {
         "tic_id": "TIC 289399472",
         "class": "transit",
-        "confidence": 0.2638,
+        "confidence": 0.3932,
         "period_days": 6.7528,
         "period_err": 0.0074,
         "depth_ppm": 611,
@@ -920,12 +920,12 @@
         "duration_hrs": 2.43,
         "duration_err": 0.23,
         "snr": 8.08,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 344798339": {
         "tic_id": "TIC 344798339",
         "class": "transit",
-        "confidence": 0.3661,
+        "confidence": 0.3805,
         "period_days": 3.4025,
         "period_err": 0.0001,
         "depth_ppm": 1677,
@@ -933,12 +933,12 @@
         "duration_hrs": 1.63,
         "duration_err": 0.17,
         "snr": 20.34,
-        "anomaly_score": 4e-08
+        "anomaly_score": 5e-08
     },
     "TIC 408636229": {
         "tic_id": "TIC 408636229",
         "class": "transit",
-        "confidence": 0.1468,
+        "confidence": 0.3944,
         "period_days": 8.5908,
         "period_err": 0.0269,
         "depth_ppm": 292,
@@ -946,12 +946,12 @@
         "duration_hrs": 4.12,
         "duration_err": 0.54,
         "snr": 3.37,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 231702397": {
         "tic_id": "TIC 231702397",
         "class": "transit",
-        "confidence": 0.372,
+        "confidence": 0.3894,
         "period_days": 4.4217,
         "period_err": 0.0071,
         "depth_ppm": 1863,
@@ -959,12 +959,12 @@
         "duration_hrs": 1.59,
         "duration_err": 0.18,
         "snr": 22.56,
-        "anomaly_score": 4e-08
+        "anomaly_score": 3e-08
     },
     "TIC 267586765": {
         "tic_id": "TIC 267586765",
         "class": "transit",
-        "confidence": 0.1806,
+        "confidence": 0.4018,
         "period_days": 6.6223,
         "period_err": 0.0042,
         "depth_ppm": 401,
@@ -972,12 +972,12 @@
         "duration_hrs": 3.18,
         "duration_err": 0.25,
         "snr": 4.44,
-        "anomaly_score": 3e-08
+        "anomaly_score": 1e-08
     },
     "TIC 346690213": {
         "tic_id": "TIC 346690213",
         "class": "transit",
-        "confidence": 0.3326,
+        "confidence": 0.3886,
         "period_days": 7.0087,
         "period_err": 0.0035,
         "depth_ppm": 1029,
@@ -985,12 +985,12 @@
         "duration_hrs": 2.52,
         "duration_err": 0.36,
         "snr": 13.79,
-        "anomaly_score": 3e-08
+        "anomaly_score": 2e-08
     },
     "TIC 382206774": {
         "tic_id": "TIC 382206774",
         "class": "transit",
-        "confidence": 0.3119,
+        "confidence": 0.3921,
         "period_days": 6.0563,
         "period_err": 0.0019,
         "depth_ppm": 942,
@@ -998,12 +998,12 @@
         "duration_hrs": 2.18,
         "duration_err": 0.23,
         "snr": 11.55,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 441462736": {
         "tic_id": "TIC 441462736",
         "class": "transit",
-        "confidence": 0.1465,
+        "confidence": 0.3953,
         "period_days": 11.0095,
         "period_err": 0.0177,
         "depth_ppm": 274,
@@ -1011,12 +1011,12 @@
         "duration_hrs": 3.96,
         "duration_err": 0.54,
         "snr": 3.37,
-        "anomaly_score": 3e-08
+        "anomaly_score": 1e-08
     },
     "TIC 192790476": {
         "tic_id": "TIC 192790476",
         "class": "transit",
-        "confidence": 0.1677,
+        "confidence": 0.3937,
         "period_days": 13.7415,
         "period_err": 0.0282,
         "depth_ppm": 334,
@@ -1024,12 +1024,12 @@
         "duration_hrs": 4.95,
         "duration_err": 2.09,
         "snr": 4.02,
-        "anomaly_score": 3e-08
+        "anomaly_score": 1e-08
     },
     "TIC 261867928": {
         "tic_id": "TIC 261867928",
         "class": "transit",
-        "confidence": 0.3169,
+        "confidence": 0.3886,
         "period_days": 7.0407,
         "period_err": 0.0016,
         "depth_ppm": 1209,
@@ -1037,12 +1037,12 @@
         "duration_hrs": 2.53,
         "duration_err": 0.08,
         "snr": 12.04,
-        "anomaly_score": 3e-08
+        "anomaly_score": 2e-08
     },
     "TIC 394137592": {
         "tic_id": "TIC 394137592",
         "class": "transit",
-        "confidence": 0.2906,
+        "confidence": 0.3919,
         "period_days": 14.6561,
         "period_err": 0.0345,
         "depth_ppm": 620,
@@ -1050,12 +1050,12 @@
         "duration_hrs": 5.28,
         "duration_err": 1.98,
         "snr": 9.8,
-        "anomaly_score": 2e-08
+        "anomaly_score": 1e-08
     },
     "TIC 441442928": {
         "tic_id": "TIC 441442928",
         "class": "transit",
-        "confidence": 0.3412,
+        "confidence": 0.3885,
         "period_days": 6.2933,
         "period_err": 0.0029,
         "depth_ppm": 1365,
@@ -1063,12 +1063,12 @@
         "duration_hrs": 2.27,
         "duration_err": 0.11,
         "snr": 14.99,
-        "anomaly_score": 3e-08
+        "anomaly_score": 2e-08
     },
     "TIC 158324693": {
         "tic_id": "TIC 158324693",
         "class": "transit",
-        "confidence": 0.3732,
+        "confidence": 0.3907,
         "period_days": 6.6942,
         "period_err": 0.0021,
         "depth_ppm": 1928,
@@ -1076,12 +1076,12 @@
         "duration_hrs": 2.41,
         "duration_err": 0.26,
         "snr": 23.11,
-        "anomaly_score": 4e-08
+        "anomaly_score": 3e-08
     },
     "TIC 279741379": {
         "tic_id": "TIC 279741379",
-        "class": "transit",
-        "confidence": 0.2079,
+        "class": "other",
+        "confidence": 0.2796,
         "period_days": 1.1262,
         "period_err": 0.001,
         "depth_ppm": 1575,
@@ -1089,12 +1089,12 @@
         "duration_hrs": 7.57,
         "duration_err": 1.08,
         "snr": 5.44,
-        "anomaly_score": 6.9e-07
+        "anomaly_score": 8.8e-07
     },
     "TIC 394137591": {
         "tic_id": "TIC 394137591",
-        "class": "transit",
-        "confidence": 0.1977,
+        "class": "other",
+        "confidence": 0.2821,
         "period_days": 1.2362,
         "period_err": 0.0026,
         "depth_ppm": 1526,
@@ -1102,12 +1102,12 @@
         "duration_hrs": 9.05,
         "duration_err": 0.45,
         "snr": 5.05,
-        "anomaly_score": 7.9e-07
+        "anomaly_score": 9.9e-07
     },
     "TIC 219854517": {
         "tic_id": "TIC 219854517",
-        "class": "transit",
-        "confidence": 0.2011,
+        "class": "other",
+        "confidence": 0.2776,
         "period_days": 1.3875,
         "period_err": 0.0023,
         "depth_ppm": 1430,
@@ -1115,12 +1115,12 @@
         "duration_hrs": 9.99,
         "duration_err": 0.51,
         "snr": 5.18,
-        "anomaly_score": 6e-07
+        "anomaly_score": 7.7e-07
     },
     "TIC 441462700": {
         "tic_id": "TIC 441462700",
         "class": "transit",
-        "confidence": 0.2284,
+        "confidence": 0.296,
         "period_days": 0.8928,
         "period_err": 0.001,
         "depth_ppm": 900,
@@ -1128,12 +1128,12 @@
         "duration_hrs": 4.29,
         "duration_err": 1.23,
         "snr": 6.3,
-        "anomaly_score": 1.2e-07
+        "anomaly_score": 2e-07
     },
     "TIC 158588991": {
         "tic_id": "TIC 158588991",
-        "class": "transit",
-        "confidence": 0.2123,
+        "class": "other",
+        "confidence": 0.2738,
         "period_days": 1.4079,
         "period_err": 0.0026,
         "depth_ppm": 1469,
@@ -1141,12 +1141,12 @@
         "duration_hrs": 8.62,
         "duration_err": 1.17,
         "snr": 5.62,
-        "anomaly_score": 4.8e-07
+        "anomaly_score": 6.4e-07
     },
     "TIC 264979630": {
         "tic_id": "TIC 264979630",
-        "class": "transit",
-        "confidence": 0.204,
+        "class": "other",
+        "confidence": 0.2768,
         "period_days": 0.88,
         "period_err": 0.001,
         "depth_ppm": 1398,
@@ -1154,12 +1154,12 @@
         "duration_hrs": 6.13,
         "duration_err": 1.37,
         "snr": 5.29,
-        "anomaly_score": 5.8e-07
+        "anomaly_score": 7.5e-07
     },
     "TIC 280206390": {
         "tic_id": "TIC 280206390",
         "class": "transit",
-        "confidence": 0.2639,
+        "confidence": 0.3972,
         "period_days": 14.4162,
         "period_err": 0.0223,
         "depth_ppm": 3856,
@@ -1167,12 +1167,12 @@
         "duration_hrs": 6.92,
         "duration_err": 2.81,
         "snr": 8.09,
-        "anomaly_score": 4.7e-07
+        "anomaly_score": 4.8e-07
     },
     "TIC 349827420": {
         "tic_id": "TIC 349827420",
-        "class": "transit",
-        "confidence": 0.2081,
+        "class": "other",
+        "confidence": 0.2873,
         "period_days": 1.3943,
         "period_err": 0.0023,
         "depth_ppm": 1743,
@@ -1180,12 +1180,12 @@
         "duration_hrs": 10.21,
         "duration_err": 0.66,
         "snr": 5.45,
-        "anomaly_score": 1e-06
+        "anomaly_score": 1.23e-06
     },
     "TIC 336743060": {
         "tic_id": "TIC 336743060",
-        "class": "transit",
-        "confidence": 0.1936,
+        "class": "other",
+        "confidence": 0.292,
         "period_days": 1.1238,
         "period_err": 0.0023,
         "depth_ppm": 1895,
@@ -1193,12 +1193,12 @@
         "duration_hrs": 8.09,
         "duration_err": 0.31,
         "snr": 4.9,
-        "anomaly_score": 1.28e-06
+        "anomaly_score": 1.53e-06
     },
     "TIC 147950610": {
         "tic_id": "TIC 147950610",
         "class": "transit",
-        "confidence": 0.1976,
+        "confidence": 0.2792,
         "period_days": 1.1597,
         "period_err": 0.0022,
         "depth_ppm": 950,
@@ -1206,12 +1206,12 @@
         "duration_hrs": 6.68,
         "duration_err": 1.87,
         "snr": 5.05,
-        "anomaly_score": 1.9e-07
+        "anomaly_score": 3e-07
     },
     "TIC 199376580": {
         "tic_id": "TIC 199376580",
-        "class": "transit",
-        "confidence": 0.2015,
+        "class": "other",
+        "confidence": 0.2758,
         "period_days": 0.5663,
         "period_err": 0.0001,
         "depth_ppm": 1417,
@@ -1219,12 +1219,12 @@
         "duration_hrs": 4.01,
         "duration_err": 0.38,
         "snr": 5.2,
-        "anomaly_score": 5.2e-07
+        "anomaly_score": 6.9e-07
     },
     "TIC 271893360": {
         "tic_id": "TIC 271893360",
-        "class": "transit",
-        "confidence": 0.2083,
+        "class": "other",
+        "confidence": 0.2733,
         "period_days": 1.4216,
         "period_err": 0.0016,
         "depth_ppm": 1368,
@@ -1232,12 +1232,12 @@
         "duration_hrs": 9.38,
         "duration_err": 0.93,
         "snr": 5.46,
-        "anomaly_score": 4.7e-07
+        "anomaly_score": 6.2e-07
     },
     "TIC 303317320": {
         "tic_id": "TIC 303317320",
-        "class": "transit",
-        "confidence": 0.1998,
+        "class": "other",
+        "confidence": 0.2731,
         "period_days": 0.8101,
         "period_err": 0.001,
         "depth_ppm": 1280,
@@ -1245,12 +1245,12 @@
         "duration_hrs": 6.22,
         "duration_err": 0.81,
         "snr": 5.13,
-        "anomaly_score": 4.4e-07
+        "anomaly_score": 5.9e-07
     },
     "TIC 415969900": {
         "tic_id": "TIC 415969900",
         "class": "transit",
-        "confidence": 0.2239,
+        "confidence": 0.303,
         "period_days": 0.5294,
         "period_err": 0.0014,
         "depth_ppm": 836,
@@ -1258,12 +1258,12 @@
         "duration_hrs": 2.48,
         "duration_err": 0.71,
         "snr": 6.1,
-        "anomaly_score": 9e-08
+        "anomaly_score": 1.7e-07
     },
     "TIC 144700900": {
         "tic_id": "TIC 144700900",
-        "class": "transit",
-        "confidence": 0.2084,
+        "class": "other",
+        "confidence": 0.2846,
         "period_days": 1.4624,
         "period_err": 0.0035,
         "depth_ppm": 1729,
@@ -1271,6 +1271,6 @@
         "duration_hrs": 10.0,
         "duration_err": 0.56,
         "snr": 5.46,
-        "anomaly_score": 8.9e-07
+        "anomaly_score": 1.1e-06
     }
 }

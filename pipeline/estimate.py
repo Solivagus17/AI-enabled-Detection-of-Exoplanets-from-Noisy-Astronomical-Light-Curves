@@ -97,24 +97,21 @@ def estimate_parameters(time, flux, best_candidate, clf_model=None, ae_model=Non
     
     if clf_model is not None:
         # Predict class probabilities
-        # Input shape needs to be (1, 200, 1)
-        input_data = np.expand_dims(folded_flux, axis=0)
+        # Input shape needs to be (1, 200, 1), baseline-centered at 0.0
+        input_data = np.expand_dims(folded_flux - 1.0, axis=0)
         preds = clf_model.predict(input_data, verbose=0)[0]
         class_idx = np.argmax(preds)
         classes = ["transit", "eclipse", "blend", "other"]
         pred_class = classes[class_idx]
         
-        # Calculate confidence score
-        # Calibrated by both classifier probability and SNR
-        pred_prob = preds[class_idx]
-        snr_factor = 1.0 - np.exp(-snr / 7.1)
-        confidence = float(pred_prob * snr_factor)
+        # Calculate confidence score (raw softmax probability of the predicted class)
+        confidence = float(preds[class_idx])
         
     if ae_model is not None:
         # Reconstruct and compute MSE anomaly score
-        input_data = np.expand_dims(folded_flux, axis=0)
+        input_data = np.expand_dims(folded_flux - 1.0, axis=0)
         reconstructed = ae_model.predict(input_data, verbose=0)[0]
-        anomaly_score = float(np.mean(np.square(folded_flux - reconstructed)))
+        anomaly_score = float(np.mean(np.square((folded_flux - 1.0) - reconstructed)))
         
     # Compute baseline depth and duration
     phases = best_candidate["folded_phase"][:, 0]

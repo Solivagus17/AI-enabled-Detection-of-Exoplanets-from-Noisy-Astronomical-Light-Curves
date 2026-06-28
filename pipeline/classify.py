@@ -112,11 +112,9 @@ def augment_data(X, y, factor=10):
             aug_curve = np.roll(aug_curve, shift, axis=0)
             
             # 2. Depth scaling (only if it is a transit/eclipse/blend)
-            # Find the deviation from 1.0 (transit dip)
             if label in [0, 1, 2]:
-                deviation = 1.0 - aug_curve
                 scale = np.random.uniform(0.8, 1.2)
-                aug_curve = 1.0 - deviation * scale
+                aug_curve = aug_curve * scale
                 
             # 3. Add small random Gaussian noise
             noise = np.random.normal(0, 0.0005, size=aug_curve.shape)
@@ -150,7 +148,7 @@ def extract_folded_curves(processed_dir="data/processed"):
         # Take the folded flux of the best candidate (highest SNR)
         # Note: detect_candidates returns candidates sorted by SNR descending
         best_cand = candidates[0]
-        X_folded.append(best_cand["folded_flux"])
+        X_folded.append(best_cand["folded_flux"] - 1.0)
         
     X_folded = np.array(X_folded, dtype=np.float32) # shape (N, 200, 1)
     return X_folded, y, tics
