@@ -116,8 +116,8 @@ def augment_data(X, y, factor=10):
                 scale = np.random.uniform(0.8, 1.2)
                 aug_curve = aug_curve * scale
                 
-            # 3. Add small random Gaussian noise
-            noise = np.random.normal(0, 0.0005, size=aug_curve.shape)
+            # 3. Add small random Gaussian noise (scaled by 1000 to match)
+            noise = np.random.normal(0, 0.5, size=aug_curve.shape)
             aug_curve = aug_curve + noise
             
             X_aug.append(aug_curve)
@@ -148,7 +148,7 @@ def extract_folded_curves(processed_dir="data/processed"):
         # Take the folded flux of the best candidate (highest SNR)
         # Note: detect_candidates returns candidates sorted by SNR descending
         best_cand = candidates[0]
-        X_folded.append(best_cand["folded_flux"] - 1.0)
+        X_folded.append((best_cand["folded_flux"] - 1.0) * 1000.0)
         
     X_folded = np.array(X_folded, dtype=np.float32) # shape (N, 200, 1)
     return X_folded, y, tics
