@@ -117,7 +117,7 @@ def augment_data(X, y, factor=10):
                 aug_curve = aug_curve * scale
                 
             # 3. Add small random Gaussian noise (scaled by 1000 to match)
-            noise = np.random.normal(0, 0.5, size=aug_curve.shape)
+            noise = np.random.normal(0, 0.05, size=aug_curve.shape)
             aug_curve = aug_curve + noise
             
             X_aug.append(aug_curve)
@@ -178,14 +178,14 @@ def train_and_evaluate(processed_dir="data/processed", models_dir="models"):
     logging.info("Building and compiling CNN-LSTM Classifier...")
     clf = build_cnn_lstm()
     clf.compile(
-        optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3),
+        optimizer=tf.keras.optimizers.Adam(learning_rate=5e-4),
         loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
     
     # Callback to prevent overfitting
     early_stop = tf.keras.callbacks.EarlyStopping(
-        monitor='val_loss', patience=15, restore_best_weights=True
+        monitor='val_loss', patience=30, restore_best_weights=True
     )
     
     logging.info("Training CNN-LSTM Classifier...")
