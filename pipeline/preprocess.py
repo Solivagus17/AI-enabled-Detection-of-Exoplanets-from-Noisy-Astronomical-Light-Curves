@@ -48,8 +48,8 @@ def preprocess_single(fits_path, target_length=4000):
         # Load the light curve
         lc = lk.read(fits_path)
         
-        # 1. Remove outliers (3-sigma clipping)
-        lc = lc.remove_outliers(sigma=3)
+        # 1. Remove outliers (10-sigma clipping to preserve deep eclipses/transits)
+        lc = lc.remove_outliers(sigma=10)
         
         # 2. Flatten stellar variability/instrumental trends
         # Note: window_length should be an odd integer. 401 is standard.
