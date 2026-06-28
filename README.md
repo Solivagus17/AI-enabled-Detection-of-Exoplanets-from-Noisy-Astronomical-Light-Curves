@@ -1,8 +1,24 @@
-# ExoHunter: TESS Exoplanet Transit Detection & Classification Pipeline
+# ExoHunter: AI-enabled Detection of Exoplanets from Noisy Astronomical Light Curves
 
-ExoHunter is a production-ready astrophysics machine learning pipeline designed to detect and classify periodic exoplanetary transit signals in NASA's **Transiting Exoplanet Survey Satellite (TESS)** short-cadence light curves. 
+> **BAH 2K26 — Problem Statement 7**
 
-The pipeline combines classical astronomical signal processing (**Box Least Squares periodograms**) with deep learning architectures (**CNN-LSTM** classifiers and **Autoencoder** anomaly detectors) to detect transits, estimate their orbital parameters, quantify uncertainties via bootstrapping, and classify targets into physical categories.
+ExoHunter is an end-to-end AI-driven astrophysics pipeline that automatically detects and classifies exoplanet transit signals in NASA **TESS (Transiting Exoplanet Survey Satellite)** light curves. It addresses the full scope of PS7: periodic dip identification, 4-class signal classification, orbital parameter estimation with uncertainty quantification, SNR significance flagging, and interactive visualization — all within a single reproducible system.
+
+The pipeline pairs classical astronomical signal processing (**Box Least Squares periodograms**) with deep learning (**CNN-LSTM** classifier and **Autoencoder** anomaly detector) to disentangle the overlapping morphologies of planetary transits, stellar eclipses, blended background binaries, and variable star noise.
+
+---
+
+## 🎯 Problem Statement Requirements → Pipeline Mapping
+
+| PS7 Requirement | ExoHunter Implementation |
+|---|---|
+| Identify datasets with periodic dips | BLS periodogram search (`detect.py`) |
+| Classify into transits, eclipses, blends, other | CNN-LSTM classifier (`classify.py`) |
+| Apply classifier on science datasets | Batch prediction CLI (`main.py --predict-all`) |
+| Provide SNR / significance levels | BLS-derived SNR with threshold > 7.1 (`detect.py`) |
+| Estimate transit depth, period, duration | Bootstrap parameter estimation (`estimate.py`) |
+| Provide confidence level of detected signal | Softmax class probability from CNN-LSTM (`estimate.py`) |
+| Visualization of light curve + classified signal | Plotly dashboard with raw + folded plots (`app.py`) |
 
 ---
 
@@ -10,14 +26,14 @@ The pipeline combines classical astronomical signal processing (**Box Least Squa
 
 ```mermaid
 graph TD
-    A[MAST API / Ingestion] -->|Short-Cadence FITS| B[Preprocessing Stage]
-    B -->|10-Sigma Clip & Flattening| C[Signal Detection Stage]
-    C -->|BLS Periodogram Search| D[Phase Folding & Binning]
-    D -->|Folded Curve 200, 1| E[Classification Stage]
-    D -->|Folded Curve 200, 1| F[Parameter Estimation Stage]
-    E -->|CNN-LSTM Predictor| G[Exoplanet Catalog JSON]
-    F -->|100x Bootstrap Resampling| G
-    G --> H[Streamlit Dashboard app.py]
+    A[MAST API / FITS Files] -->|Short-Cadence Light Curves| B[Preprocessing Stage]
+    B -->|10-Sigma Clip & Savitzky-Golay Flatten| C[Signal Detection Stage]
+    C -->|BLS Periodogram + SNR > 7.1 Threshold| D[Phase Folding & Binning]
+    D -->|Folded Curve shape 200 x 1| E[CNN-LSTM Classification]
+    D -->|Folded Curve shape 200 x 1| F[Parameter Estimation]
+    E -->|4-Class Softmax Confidence| G[Exoplanet Catalog JSON]
+    F -->|100x Bootstrap Uncertainties| G
+    G --> H[Streamlit Interactive Dashboard]
 ```
 
 ---
@@ -25,47 +41,73 @@ graph TD
 ## 🔭 How the Pipeline Works
 
 ### 1. Ingestion Stage (`ingest.py`)
-Fetches **short-cadence (2-minute)** light curves from the Mikulski Archive for Space Telescopes (MAST) using `Lightkurve`.
-* **Astrophysical Reasoning**: Short-cadence data is critical to resolve transit ingress and egress shapes, which are key diagnostic features for separating planetary transits from stellar eclipses.
-* **Resiliency**: If the MAST server is down, the ingestion engine triggers a **global socket monkey-patch timeout** and dynamically generates realistic synthetic light curves matching the target class, caching them locally under `/data/raw/` so the pipeline remains 100% functional offline.
+Fetches **short-cadence (2-minute cadence)** TESS light curves from the Mikulski Archive for Space Telescopes (MAST) using `Lightkurve`. The pipeline targets 100 pre-selected TESS Input Catalog (TIC) IDs spanning all four signal categories.
+
+* **Astrophysical Reasoning**: Short-cadence data resolves transit ingress and egress shapes — the critical morphological signatures that differentiate a planetary transit (flat-bottomed U-shape) from a stellar eclipse (V-shaped primary/secondary pair).
+* **Offline Resiliency**: A global socket monkey-patch enforces strict timeouts (5s connect / 8s read). If MAST is unreachable, the pipeline automatically generates **astrophysically faithful synthetic light curves** with the correct morphology for each class, caching them locally under `pipeline/data/raw/` so the full pipeline runs offline. This is the current prototype mode while the curated MAST dataset is awaited.
 
 ### 2. Preprocessing Stage (`preprocess.py`)
-Converts raw, systematic-heavy stellar flux observations into normalized, standardized timeseries:
-* **Outlier Removal**: 10-sigma clipping eliminates non-astrophysical spikes (cosmic ray strikes on the CCD or spacecraft pointing jitter) while preserving deep binary eclipses and planetary transits.
-* **Flattening**: A Savitzky-Golay filter (window length 401) removes slow stellar variability (starspots, rotation) and long-term instrument drift, creating a flat baseline at exactly `1.0`.
-* **Normalization & Gap Filling**: Fills telemetry gaps via linear interpolation and pads/truncates all light curves to a uniform size of **4,000 points** for neural network compatibility.
+Converts raw stellar flux observations into clean, normalized time series ready for ML ingestion:
+
+* **Outlier Removal**: **10-sigma clipping** eliminates non-astrophysical spikes from cosmic ray CCD strikes and spacecraft pointing jitter, while preserving the physically large dips of planetary transits and stellar eclipses (which can be hundreds of sigma below the noise floor).
+* **Flattening**: A **Savitzky-Golay filter** (window length 401) removes slow stellar variability — starspot modulation, rotation, and long-term instrument drift — creating a flat continuum baseline at `1.0`.
+* **Normalization & Gap Filling**: Linear interpolation fills telemetry gaps caused by spacecraft momentum dumps. All light curves are padded or truncated to a **uniform length of 4,000 cadence points** for neural network compatibility.
 
 ### 3. Detection Stage (`detect.py`)
-Performs a Box Least Squares (BLS) periodogram search to fit periodic, box-shaped dips to the preprocessed light curve:
-* **Box Modeling**: fits period ($P$), epoch ($t_0$), depth ($\delta$), and duration ($d$).
-* **Flagging Threshold**: Signals exceeding the standard astrophysical threshold ($\text{SNR} > 7.1$) are flagged as exoplanet candidates.
-* **Phase Folding**: Folds the light curve at the peak candidate period, centering the transit at phase `0.0` (ranging from $-0.5$ to $+0.5$), and bins the folded curves into **200 uniform bins** (`(200, 1)` array).
+Performs a **Box Least Squares (BLS)** periodogram search — the standard technique in exoplanet science — to find the best-fit periodic box-shaped dip in the cleaned light curve:
+
+* **BLS Modeling**: Simultaneously fits period ($P$), epoch ($t_0$), depth ($\delta$), and duration ($\tau$) across a grid of trial periods.
+* **SNR Significance Threshold**: Only signals with $\text{SNR} > 7.1$ are flagged as astrophysical candidates. This threshold is the established standard from the Kepler/TESS transit survey community.
+* **Phase Folding**: The light curve is folded at the peak BLS period, centering the transit at phase `0.0` (spanning $-0.5$ to $+0.5$). The folded curve is binned into **200 uniform phase bins** producing a `(200, 1)` array — the feature input to the neural network.
 
 ### 4. Classification Stage (`classify.py`)
-Classifies the folded light curve shape into one of 4 classes:
-1. **Transit**: Symmetric, flat-bottomed U-shape (planetary transits, usually $<2\%$ depth).
-2. **Eclipse**: Deep, V-shaped or alternating primary/secondary dips (stellar eclipsing binaries).
-3. **Blend**: Grazing or diluted binary transits (background eclipsing binaries).
-4. **Other**: Sine-wave or irregular variations (stellar spots, rotation, or noise).
+A trained deep learning model classifies the folded phase curve morphology into one of four physically distinct categories defined in the problem statement:
 
-* **Model A (CNN-LSTM)**: Extracted features from 1D Convolutions are fed into an LSTM layer to capture asymmetry and temporal sequence shapes.
-* **Model B (Autoencoder)**: Compresses the folded curve into a latent space of 8 dimensions and reconstructs it. The reconstruction Mean Squared Error (MSE) serves as an **Anomaly Score** to flag unclassifiable anomalies or instrumentation errors.
+| Class | Physical Signal | Characteristic Shape |
+|---|---|---|
+| **Transit** | Planetary transit across host star disk | Symmetric, flat-bottomed U-shape, depth < 2% |
+| **Eclipse** | Stellar eclipsing binary companion | Deep V-shape with primary + secondary eclipses |
+| **Blend** | Background eclipsing binary in aperture | Shallow, distorted dip + sinusoidal contamination |
+| **Other** | Starspots, rotation, oscillations | Sinusoidal modulation or irregular variability |
+
+**Model A — CNN-LSTM Classifier**:
+- Architecture: `Conv1D(64,3) → MaxPool → Conv1D(128,3) → MaxPool → LSTM(64) → Dense(64) → Dropout(0.3) → Dense(4, softmax)`
+- 1D convolutions extract local temporal features (ingress/egress shape, dip width). The LSTM layer captures sequential asymmetry between the leading and trailing limbs of the transit.
+- Trained on **10x phase-shift and depth-scale augmented** data to be robust to epoch selection errors.
+- Output: a 4-element softmax probability vector. The **confidence score** is the raw softmax probability of the predicted class (e.g., `0.96` = 96% confidence).
+
+**Model B — Autoencoder Anomaly Detector**:
+- Architecture: `Conv1D Encoder → Flatten → Dense(8) bottleneck → Dense → Reshape → Conv1DTranspose Decoder`
+- Compresses the folded curve into an 8-dimensional latent space and reconstructs it. The **Anomaly Score** is the reconstruction MSE — low for normal transit shapes (~0.1), very high for unrecognized morphologies or deeply anomalous signals (e.g., `~374` for a deep eclipsing binary).
 
 ### 5. Parameter Estimation Stage (`estimate.py`)
-Estimates physical parameters and quantifies uncertainties:
-* **Contiguous Duration Estimation**: Computes the transit duration (hours) via boundary expansion starting from the transit midpoint (minimum binned flux) to avoid noise near the phase boundaries.
-* **Bootstrapping (100x)**: Resamples the phase-folded light curve points with replacement, bins them, and computes standard errors. This accounts for correlated stellar noise (red noise), yielding realistic 1-sigma uncertainties (`depth_err`, `duration_err`, `period_err`).
+Estimates the three core physical parameters required by the PS and quantifies their 1-sigma uncertainties:
+
+* **Orbital Period** ($P$): Directly from the BLS peak frequency with local refinement.
+* **Transit Depth** ($\delta$, in ppm): Measured from the minimum flux in the phase-folded binned curve relative to the out-of-transit continuum. Converted to parts-per-million.
+* **Transit Duration** ($\tau$, in hours): Computed via boundary expansion from the transit midpoint (minimum binned flux) outward until the flux returns to the continuum — avoiding noise contamination near phase edges.
+* **Bootstrapping (100 iterations)**: Resamples the raw phase-folded data points with replacement, re-bins them, and re-extracts depth and duration. The standard deviation across iterations gives **realistic 1-sigma uncertainties** (`depth_err`, `duration_err`, `period_err`) that account for correlated stellar noise (red noise).
 
 ---
 
-## 🌟 Innovations & Key Breakthroughs
+## 🌟 Engineering Innovations
 
-During pipeline optimization, several critical enhancements were made to achieve state-of-the-art results:
+The following optimizations were identified and implemented during development. Each is verifiable directly in the source code:
 
-1. **10-Sigma Signal Preservation**: Originally, a standard `3-sigma` outlier clip was applied. However, deep eclipsing binaries (EBs) have dips exceeding $100\sigma$ relative to synthetic noise. This caused the preprocessor to delete the entire eclipse dip, leaving the classifier with flat noise. Increasing this to **`10-sigma`** fully preserves deep binary eclipses and large planet transits.
-2. **Baseline Centering & 1000x Scaling**: Normalized light curves hover near `1.0`. Feeding these near-identical values to the CNN-LSTM resulted in vanishing gradients and a model stuck at $\sim 38\%$ accuracy. Subtracting the `1.0` baseline and scaling by **`1000x`** (parts-per-thousand space) centers the baseline at `0.0` and scales features to standard ranges (dips range from $-2.0$ to $-150.0$), boosting classifier validation accuracy to **`95.00%`** with **`97.40%` multiclass ROC-AUC** (with 100% precision & recall on eclipses!).
-3. **Dynamic Model Watchdog**: Streamlit's static `@st.cache_resource` decorator caches loaded Keras models in memory forever. If a model was retrained on disk, the dashboard stayed stuck serving old predictions. We replaced static caching with a **dynamic watchdog** that checks file modification times (`mtime`) on every page load, hot-reloading new weights instantly.
-4. **Rescaled Anomaly Scores**: Computing Autoencoder reconstruction MSE on 1000x-scaled inputs brings anomaly scores into a standard decimal range (e.g., `0.1` for transits, `374.0` for deep eclipsing binary anomalies) instead of unreadable scientific notation ($10^{-8}$).
+### 1. 10-Sigma Outlier Preservation (`preprocess.py`)
+The original implementation used standard `3-sigma` outlier clipping. However, synthetic and real eclipsing binary dips can reach depths of $5{-}15\%$, which — relative to the TESS photon noise floor — represent deviations of $100{-}1000\sigma$. The 3-sigma clipper was deleting the **entire eclipse profile** and feeding the classifier flat noise, causing it to default to incorrect classifications. Switching to **10-sigma** eliminates cosmic ray spikes (single-cadence outliers) while fully preserving all astrophysical dip morphologies.
+
+### 2. Baseline Centering & 1000x Feature Scaling (`classify.py`, `estimate.py`)
+After Savitzky-Golay flattening, all light curves have flux values hovering near `1.0` (e.g., a transit dip goes from `1.0` to `0.997`). Feeding near-constant values directly to the CNN-LSTM caused vanishing gradients and a classifier stuck near random chance ($\sim38\%$ accuracy for 4 classes). The fix: subtract the `1.0` continuum baseline and multiply by **`1000`** to project features into parts-per-thousand (ppt) space. Transit dips now range from `−2` to `−5`, eclipses from `−50` to `−150`. This single change boosted classifier validation accuracy to **95%** (ROC-AUC: **97.4%**) with **100% precision and recall on eclipse classification**.
+
+### 3. Stratified 80/20 Train–Validation Split with 10x Augmentation (`classify.py`)
+The dataset is split with `stratify=y` to ensure all 4 classes are proportionally represented in both train and validation sets. The training set is then expanded 10x via:
+- **Phase rolling** (shifts up to ±5 bins): makes the model robust to epoch selection errors from BLS
+- **Depth scaling** (factor 0.8–1.2): teaches the model that the same class can appear at different signal amplitudes
+- **Gaussian noise injection** (σ = 0.05 ppt): simulates varying SNR conditions
+
+### 4. Dynamic Model Watchdog for Live Dashboard Updates (`app.py`)
+Streamlit's native `@st.cache_resource` caches loaded Keras models indefinitely in memory. After retraining models on disk, the dashboard would silently continue serving stale predictions. The solution: replace static caching with a **file modification time (`mtime`) watchdog** that checks whether `clf_model.keras` or `ae_model.keras` have been updated on every page load, and hot-reloads them if so. This enables live retraining without restarting the dashboard server.
 
 ---
 
@@ -73,38 +115,37 @@ During pipeline optimization, several critical enhancements were made to achieve
 
 ```
 /pipeline
-  ├── app.py           # Streamlit Dashboard application
-  ├── ingest.py        # MAST API ingestion & synthetic fallback generator
-  ├── preprocess.py    # Sigma-clipping, flattening, and padding
-  ├── detect.py        # BLS periodogram & phase folding
-  ├── classify.py      # Neural Network training (CNN-LSTM & Autoencoder)
-  ├── estimate.py      # Contiguous duration & bootstrap uncertainties
+  ├── app.py           # Streamlit interactive dashboard
+  ├── ingest.py        # MAST API ingestion + astrophysically faithful synthetic fallback
+  ├── preprocess.py    # 10-sigma clipping, Savitzky-Golay flattening, gap filling
+  ├── detect.py        # BLS periodogram, SNR > 7.1 threshold, phase folding
+  ├── classify.py      # CNN-LSTM & Autoencoder training, augmentation, evaluation
+  ├── estimate.py      # Depth/duration/period estimation + 100x bootstrap uncertainties
   ├── visualize.py     # Interactive Plotly publication-quality plots
-  ├── main.py          # Pipeline orchestration CLI entry point
-  ├── test_pipeline.py # Unit tests verifying all pipeline components
+  ├── main.py          # CLI orchestration entry point (--run-all, --predict-all, --tic)
+  ├── test_pipeline.py # Unit tests for all 5 pipeline stages
   ├── /data
-  │     ├── /raw       # Cached TESS FITS light curves (Target: <400MB)
-  │     ├── /processed # Cleaned NumPy arrays (X.npy, y.npy)
-  │     └── predictions.json # Output catalog of batch pipeline predictions
-  └── /models          # Saved Keras models (clf_model.keras, ae_model.keras)
+  │     ├── /raw            # Cached TESS FITS light curves
+  │     ├── /processed      # Cleaned NumPy arrays (X.npy, y.npy, times.npy, tics.npy)
+  │     └── predictions.json # Output catalog of all pipeline predictions
+  └── /models               # Saved Keras models (clf_model.keras, ae_model.keras)
 ```
 
 ---
 
 ## 🛠️ Setup & Installation
 
-### 1. Requirements
-* Python 3.9 - 3.12
+### Requirements
+* Python 3.9 – 3.12
 * TensorFlow 2.11+
-* Lightkurve
-* Astropy
-* Streamlit
-* Plotly
-* Scikit-Learn
+* Lightkurve, Astropy
+* Streamlit, Plotly
+* Scikit-Learn, SciPy, NumPy
 
-### 2. Installation Steps
-Clone this repository and install the dependencies:
+### Installation
 ```bash
+git clone https://github.com/Solivagus17/AI-enabled-Detection-of-Exoplanets-from-Noisy-Astronomical-Light-Curves
+cd "AI-enabled-Detection-of-Exoplanets-from-Noisy-Astronomical-Light-Curves"
 pip install -r requirements.txt
 ```
 
@@ -112,43 +153,52 @@ pip install -r requirements.txt
 
 ## 💻 Usage & CLI Commands
 
-You can control all stages of the pipeline using the CLI utility `main.py`:
-
-### Run the Complete Pipeline (Ingest, Preprocess, and Train Models)
-This command will fetch the 100 targets, preprocess the light curves, and train both Neural Networks:
+### Run the Complete Pipeline (Ingest → Preprocess → Train)
+Fetches all 100 target light curves, preprocesses them, and trains both neural networks:
 ```bash
 python pipeline/main.py --run-all
 ```
 
 ### Run Batch Predictions on All 100 Stars
-Loads the trained models and runs inference, saving the exoplanet catalog to `pipeline/data/predictions.json`:
+Loads the trained models and runs inference, saving the full exoplanet catalog:
 ```bash
 python pipeline/main.py --predict-all
 ```
 
-### Process and Run Inference on a Single Star
+### Run Pipeline on a Single Target
 ```bash
 python pipeline/main.py --tic "TIC 261136679"
 ```
 
-### Execute Unit Tests
-Runs the test suite to verify pipeline integrity:
+### Run Unit Tests
+Verifies all 5 pipeline stages (ingest, preprocess, detect, classify, estimate):
 ```bash
 python -m unittest pipeline/test_pipeline.py
 ```
 
 ---
 
-## 🖥️ Streamlit Dashboard Demo
+## 🖥️ Streamlit Dashboard
 
-Launch the interactive dashboard to visualize results, raw light curves, and folded transits side-by-side:
+Launch the interactive visualization and analysis dashboard:
 ```bash
 streamlit run pipeline/app.py
 ```
 
-### Dashboard Features:
-1. **Interactive Sidebar**: Select from the 100 preloaded TESS stars (filtered by category) or upload your own FITS files.
-2. **Periodogram Peaks & Metrics**: View metric cards showing the classification category, period, depth, duration, and SNR with their bootstrap uncertainties.
-3. **Side-by-Side Plots**: Compare the detrended time-series light curve (with highlighted transit regions) with the folded transit model overlaying the best-fit Box Least Squares box.
-4. **Dynamic SNR Threshold Slider**: Adjust the SNR threshold to see which candidates are flagged.
-5. **Astrophysical Explanation Card**: Explains the physical interpretation of the detected signal based on the neural network confidence and shape.
+### Dashboard Features
+1. **Target Selector**: Filter 100 preloaded TESS targets by class (transit / eclipse / blend / other) from the sidebar.
+2. **Classification Card**: Displays the predicted class with CNN-LSTM softmax confidence percentage.
+3. **Parameter Metric Cards**: Shows orbital period, transit depth (ppm), duration (hours), and SNR — each with ±1σ bootstrap uncertainties.
+4. **Raw Light Curve Plot**: Detrended time-series flux with transit regions highlighted.
+5. **Phase-Folded Transit Plot**: Folded curve centered at phase 0.0 with the best-fit BLS box model overlaid.
+6. **Anomaly Score Display**: Autoencoder reconstruction MSE indicating how anomalous the transit shape is.
+7. **Dynamic SNR Threshold Slider**: Adjust the detection threshold in real time to explore candidate sensitivity.
+8. **Astrophysical Interpretation Card**: Narrative explanation of the physical meaning of the detected signal.
+
+---
+
+## ⚠️ Prototype Note
+
+This repository is currently operating in **prototype mode**. The curated MAST science dataset referenced in PS7 has not yet been provided. All 100 light curves are currently generated by an astrophysically faithful synthetic fallback generator that produces the correct morphological signatures for each class (periodic box transits, deep V-shape eclipses, blended sinusoidal contamination, and sinusoidal stellar variability).
+
+Accordingly, the **95% validation accuracy and 97.4% ROC-AUC figures are measured on synthetic prototype data**. When the real MAST FITS files are received, the full pipeline requires zero code changes — simply replace the files in `pipeline/data/raw/` and re-run `python pipeline/main.py --run-all`.
