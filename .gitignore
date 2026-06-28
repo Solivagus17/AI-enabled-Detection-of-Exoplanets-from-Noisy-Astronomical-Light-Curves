@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+
+# Data directories (large FITS and numpy files)
+pipeline/data/raw/
+pipeline/data/processed/
+test_synthetic.fits
+pipeline/data/test_synthetic_3.py
+
+# Models (optional to ignore, but we keep models inside workspace or ignore if wanted, let's keep models for instant demo use)
+# pipeline/models/
+
+# Streamlit/OS configurations
+.streamlit/
+.DS_Store
+Thumbs.db
+failed.txt
