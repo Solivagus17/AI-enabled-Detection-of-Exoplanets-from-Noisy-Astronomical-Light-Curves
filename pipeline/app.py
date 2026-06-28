@@ -75,28 +75,38 @@ RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
 PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
 MODELS_DIR = os.path.join(BASE_DIR, "models")
 
-# Load models helper
-@st.cache_resource
+# Load models helper with dynamic file watchdog to reload on changes
 def load_deep_models():
     clf_path = os.path.join(MODELS_DIR, "clf_model.keras")
     ae_path = os.path.join(MODELS_DIR, "ae_model.keras")
     
-    clf = None
-    ae = None
+    clf_mtime = os.path.getmtime(clf_path) if os.path.exists(clf_path) else 0
+    ae_mtime = os.path.getmtime(ae_path) if os.path.exists(ae_path) else 0
     
-    if os.path.exists(clf_path):
-        try:
-            clf = tf.keras.models.load_model(clf_path)
-        except Exception as e:
-            st.sidebar.error(f"Error loading classifier: {e}")
-            
-    if os.path.exists(ae_path):
-        try:
-            ae = tf.keras.models.load_model(ae_path)
-        except Exception as e:
-            st.sidebar.error(f"Error loading autoencoder: {e}")
-            
-    return clf, ae
+    cache_key = f"models_{clf_mtime}_{ae_mtime}"
+    
+    if "loaded_models_key" not in st.session_state or st.session_state["loaded_models_key"] != cache_key:
+        st.session_state["loaded_models_key"] = cache_key
+        
+        clf = None
+        ae = None
+        
+        if os.path.exists(clf_path):
+            try:
+                clf = tf.keras.models.load_model(clf_path)
+            except Exception as e:
+                st.sidebar.error(f"Error loading classifier: {e}")
+                
+        if os.path.exists(ae_path):
+            try:
+                ae = tf.keras.models.load_model(ae_path)
+            except Exception as e:
+                st.sidebar.error(f"Error loading autoencoder: {e}")
+                
+        st.session_state["clf_model"] = clf
+        st.session_state["ae_model"] = ae
+        
+    return st.session_state["clf_model"], st.session_state["ae_model"]
 
 clf_model, ae_model = load_deep_models()
 
