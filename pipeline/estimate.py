@@ -194,7 +194,7 @@ def estimate_parameters(time, flux, best_candidate, clf_model=None, ae_model=Non
         "duration_hrs": round(duration_hrs, 2),
         "duration_err": round(duration_err_hrs, 2),
         "snr": round(snr, 2),
-        "anomaly_score": round(anomaly_score, 6)
+        "anomaly_score": round(anomaly_score, 8)
     }
 
 if __name__ == "__main__":

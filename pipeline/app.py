@@ -320,7 +320,7 @@ else:
                             pulsation, or residual instrument systematics. The signal lack the characteristic box/transit profile.
                         """)
                     
-                    st.markdown(f"**Anomaly Score (Autoencoder reconstruction MSE):** `{params['anomaly_score']:.6f}`")
+                    st.markdown(f"**Anomaly Score (Autoencoder reconstruction MSE):** `{params['anomaly_score']:.3e}`")
                     st.write("A higher reconstruction error indicates that the folded profile deviates significantly from the typical shapes seen during training.")
                     st.markdown('</div>', unsafe_allow_html=True)
                     
