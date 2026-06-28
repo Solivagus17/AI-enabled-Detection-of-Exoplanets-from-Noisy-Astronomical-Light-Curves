@@ -1,6 +1,6 @@
 """
 ExoHunter Ingest Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This module handles the ingestion of TESS light curves from the MAST database
 using Lightkurve. It fetches light curves for 100 hardcoded TESS Input Catalog (TIC)

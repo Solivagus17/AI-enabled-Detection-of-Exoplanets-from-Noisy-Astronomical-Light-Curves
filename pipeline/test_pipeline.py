@@ -1,6 +1,6 @@
 """
 ExoHunter Test Suite
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This test suite verifies the functionality of all exoplanet pipeline components:
 1. Ingestion (fetch a single test star: Pi Mensae c / TOI-144)

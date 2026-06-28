@@ -1,6 +1,6 @@
 """
 ExoHunter Detection Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This module implements Box Least Squares (BLS) periodogram search to detect
 periodic, box-shaped transit signals in preprocessed light curves.

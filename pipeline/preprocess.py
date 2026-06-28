@@ -1,6 +1,6 @@
 """
 ExoHunter Preprocessing Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This module processes raw TESS FITS light curves into a clean, uniform, and standardized
 format ready for periodic signal detection (BLS) and deep learning classification.

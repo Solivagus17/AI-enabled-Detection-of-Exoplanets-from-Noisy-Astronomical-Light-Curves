@@ -1,6 +1,6 @@
 """
 ExoHunter Visualization Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This module generates interactive Plotly visualizations of TESS light curves and
 transit detections for the Streamlit dashboard.

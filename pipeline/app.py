@@ -1,6 +1,6 @@
 """
 ExoHunter Streamlit Dashboard Application
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This is the main interactive interface for the exoplanet detection pipeline. It allows
 users to load TESS light curves (either from the 100 hardcoded TIC IDs or custom FITS uploads),

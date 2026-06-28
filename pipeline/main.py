@@ -1,6 +1,6 @@
 """
 ExoHunter Orchestration Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This is the main CLI entry point for the ExoHunter exoplanet detection pipeline.
 It orchestrates the stages of:

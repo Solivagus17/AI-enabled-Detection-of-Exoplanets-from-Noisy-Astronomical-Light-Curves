@@ -1,6 +1,6 @@
 # ExoHunter: A Deep Learning and Box Least Squares Pipeline for TESS Exoplanet Detection and Classification
 
-**Author: Antigravity Team**  
+**Author: Sarthakk Anjariya**  
 **Astrophysics Machine Learning Research & Engineering**
 
 ---

@@ -1,6 +1,6 @@
 """
 ExoHunter Parameter Estimation Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This module performs parameter estimation and uncertainty quantification for detected
 transit signals using bootstrap resampling.

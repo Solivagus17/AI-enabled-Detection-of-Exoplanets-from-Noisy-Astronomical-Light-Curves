@@ -1,6 +1,6 @@
 """
 ExoHunter Classification Module
-Author: Antigravity
+Author: Sarthakk Anjariya
 
 This module defines, trains, and evaluates two neural network architectures:
 1. Model A (CNN-LSTM): Classifies folded phase curves into 4 categories:
