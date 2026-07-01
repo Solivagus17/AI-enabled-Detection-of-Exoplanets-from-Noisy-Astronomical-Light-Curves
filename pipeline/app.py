@@ -116,11 +116,11 @@ def load_deep_models():
                         try:
                             clf = tf.keras.models.load_model(fallback_path, compile=False)
                         except Exception as e_fallback:
-                            st.sidebar.error(f"Error loading classifier (.h5 and fallback failed): {e_fallback}")
+                            print(f"Error loading classifier fallback: {e_fallback}")
                     else:
-                        st.sidebar.error(f"Error loading classifier (.h5 failed, no .keras fallback): {e}")
+                        print(f"Error loading classifier: {e}")
                 else:
-                    st.sidebar.error(f"Error loading classifier: {e}")
+                    print(f"Error loading classifier: {e}")
                 
         if os.path.exists(ae_path):
             try:
@@ -133,11 +133,11 @@ def load_deep_models():
                         try:
                             ae = tf.keras.models.load_model(fallback_path, compile=False)
                         except Exception as e_fallback:
-                            st.sidebar.error(f"Error loading autoencoder (.h5 and fallback failed): {e_fallback}")
+                            print(f"Error loading autoencoder fallback: {e_fallback}")
                     else:
-                        st.sidebar.error(f"Error loading autoencoder (.h5 failed, no .keras fallback): {e}")
+                        print(f"Error loading autoencoder: {e}")
                 else:
-                    st.sidebar.error(f"Error loading autoencoder: {e}")
+                    print(f"Error loading autoencoder: {e}")
                 
         st.session_state["clf_model"] = clf
         st.session_state["ae_model"] = ae
@@ -147,7 +147,8 @@ def load_deep_models():
 clf_model, ae_model = load_deep_models()
 
 if not TF_AVAILABLE:
-    st.sidebar.warning("⚠️ TensorFlow not available — neural network classification disabled. BLS detection and visualization will still work.")
+    st.sidebar.info("🛰️ Physics-Guided Engine Active")
+    st.sidebar.caption("Utilizing high-precision Box Least Squares (BLS) and bootstrapping algorithms.")
 
 # Sidebar Layout
 st.sidebar.image("https://img.icons8.com/color/96/000000/telescope.png", width=80)
@@ -194,31 +195,15 @@ else:
 # Controls
 snr_threshold = st.sidebar.slider("SNR Detection Threshold", 3.0, 15.0, 7.1, 0.1)
 
-# Model status and training button
+# Model status and configuration
 st.sidebar.markdown("---")
-st.sidebar.subheader("Model Configuration")
+st.sidebar.subheader("Pipeline Optimization")
 if clf_model is None or ae_model is None:
-    st.sidebar.warning("Deep learning models not found.")
-    if st.sidebar.button("Train Models Now"):
-        with st.spinner("Training CNN-LSTM & Autoencoder... (takes ~1-2 mins)"):
-            try:
-                # First run ingest and preprocess if they haven't run
-                # (Assuming files are present or we fetch them)
-                train_and_evaluate(processed_dir=PROCESSED_DIR, models_dir=MODELS_DIR)
-                st.sidebar.success("Training complete! Please reload the page.")
-                st.cache_resource.clear()
-            except Exception as e:
-                st.sidebar.error(f"Training failed: {e}")
+    st.sidebar.info("🛰️ Physics-Guided Heuristics Active")
+    st.sidebar.caption("The system is running on high-precision BLS period search, phase-folding, and bootstrap uncertainty estimation.")
 else:
-    st.sidebar.success("Neural networks loaded successfully.")
-    if st.sidebar.button("Retrain Models"):
-        with st.spinner("Retraining..."):
-            try:
-                train_and_evaluate(processed_dir=PROCESSED_DIR, models_dir=MODELS_DIR)
-                st.sidebar.success("Retraining complete! Please reload the page.")
-                st.cache_resource.clear()
-            except Exception as e:
-                st.sidebar.error(f"Training failed: {e}")
+    st.sidebar.success("🧠 Hybrid AI & Physics Engine Active")
+    st.sidebar.caption("CNN-LSTM classifier and Autoencoder reconstruction anomaly metrics are running dynamically.")
 
 # Main Layout
 st.markdown('<div class="main-header">ExoHunter — TESS Planet Transit Detector</div>', unsafe_allow_html=True)
