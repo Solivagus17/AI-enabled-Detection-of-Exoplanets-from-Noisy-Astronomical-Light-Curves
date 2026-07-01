@@ -12,6 +12,7 @@ pipeline/data/test_synthetic_3.py
 
 # Models — excluded from git, trained on first run via app UI
 pipeline/models/*.keras
+pipeline/models/*.h5
 
 # OS configurations
 .DS_Store

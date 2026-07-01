@@ -245,12 +245,20 @@ def train_and_evaluate(processed_dir="data/processed", models_dir="models"):
         verbose=1
     )
     
-    # Save the models
+    # Save the models in both formats for compatibility
     clf_path = os.path.join(models_dir, "clf_model.keras")
     ae_path = os.path.join(models_dir, "ae_model.keras")
+    clf_path_h5 = os.path.join(models_dir, "clf_model.h5")
+    ae_path_h5 = os.path.join(models_dir, "ae_model.h5")
     
     clf.save(clf_path)
     ae.save(ae_path)
+    try:
+        clf.save(clf_path_h5)
+        ae.save(ae_path_h5)
+        logging.info(f"Models successfully saved to {clf_path_h5} and {ae_path_h5}")
+    except Exception as e:
+        logging.warning(f"Could not save legacy .h5 models: {e}")
     logging.info(f"Models successfully saved to {clf_path} and {ae_path}")
     
     # Log some example reconstruction errors (anomaly scores)

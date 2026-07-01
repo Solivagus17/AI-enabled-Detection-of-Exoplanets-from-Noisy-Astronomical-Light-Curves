@@ -53,8 +53,13 @@ def load_models():
     """
     Load trained classifier and autoencoder models.
     """
-    clf_path = os.path.join(MODELS_DIR, "clf_model.keras")
-    ae_path = os.path.join(MODELS_DIR, "ae_model.keras")
+    clf_path = os.path.join(MODELS_DIR, "clf_model.h5")
+    if not os.path.exists(clf_path):
+        clf_path = os.path.join(MODELS_DIR, "clf_model.keras")
+        
+    ae_path = os.path.join(MODELS_DIR, "ae_model.h5")
+    if not os.path.exists(ae_path):
+        ae_path = os.path.join(MODELS_DIR, "ae_model.keras")
     
     clf = None
     ae = None
@@ -64,14 +69,36 @@ def load_models():
             clf = tf.keras.models.load_model(clf_path)
             logging.info(f"Loaded classifier from {clf_path}")
         except Exception as e:
-            logging.error(f"Error loading classifier: {e}")
+            if clf_path.endswith(".h5"):
+                fallback_path = os.path.join(MODELS_DIR, "clf_model.keras")
+                if os.path.exists(fallback_path):
+                    try:
+                        clf = tf.keras.models.load_model(fallback_path)
+                        logging.info(f"Loaded classifier fallback from {fallback_path}")
+                    except Exception as e_fallback:
+                        logging.error(f"Error loading classifier (.h5 and fallback failed): {e_fallback}")
+                else:
+                    logging.error(f"Error loading classifier (.h5 failed, no fallback): {e}")
+            else:
+                logging.error(f"Error loading classifier: {e}")
             
     if os.path.exists(ae_path):
         try:
             ae = tf.keras.models.load_model(ae_path)
             logging.info(f"Loaded autoencoder from {ae_path}")
         except Exception as e:
-            logging.error(f"Error loading autoencoder: {e}")
+            if ae_path.endswith(".h5"):
+                fallback_path = os.path.join(MODELS_DIR, "ae_model.keras")
+                if os.path.exists(fallback_path):
+                    try:
+                        ae = tf.keras.models.load_model(fallback_path)
+                        logging.info(f"Loaded autoencoder fallback from {fallback_path}")
+                    except Exception as e_fallback:
+                        logging.error(f"Error loading autoencoder (.h5 and fallback failed): {e_fallback}")
+                else:
+                    logging.error(f"Error loading autoencoder (.h5 failed, no fallback): {e}")
+            else:
+                logging.error(f"Error loading autoencoder: {e}")
             
     return clf, ae
 
