@@ -23,15 +23,22 @@ Astrophysical reasoning:
 import os
 import logging
 import numpy as np
-import tensorflow as tf
-from tensorflow.keras import layers, models, Input
+try:
+    import tensorflow as tf
+    from tensorflow.keras import layers, models, Input
+    TF_AVAILABLE = True
+except ImportError:
+    tf = None
+    layers = models = Input = None
+    TF_AVAILABLE = False
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, roc_auc_score
 from detect import detect_candidates
 
 # Set random seeds for reproducibility
 np.random.seed(42)
-tf.random.set_seed(42)
+if TF_AVAILABLE:
+    tf.random.set_seed(42)
 
 # Configure logging
 logging.basicConfig(

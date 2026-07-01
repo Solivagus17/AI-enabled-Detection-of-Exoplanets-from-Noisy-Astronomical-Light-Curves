@@ -12,7 +12,12 @@ import os
 import sys
 import streamlit as st
 import numpy as np
-import tensorflow as tf
+try:
+    import tensorflow as tf
+    TF_AVAILABLE = True
+except ImportError:
+    tf = None
+    TF_AVAILABLE = False
 import lightkurve as lk
 
 # Add local path to import modules
@@ -77,6 +82,9 @@ MODELS_DIR = os.path.join(BASE_DIR, "models")
 
 # Load models helper with dynamic file watchdog to reload on changes
 def load_deep_models():
+    if not TF_AVAILABLE:
+        return None, None
+
     clf_path = os.path.join(MODELS_DIR, "clf_model.keras")
     ae_path = os.path.join(MODELS_DIR, "ae_model.keras")
     
@@ -109,6 +117,9 @@ def load_deep_models():
     return st.session_state["clf_model"], st.session_state["ae_model"]
 
 clf_model, ae_model = load_deep_models()
+
+if not TF_AVAILABLE:
+    st.sidebar.warning("⚠️ TensorFlow not available — neural network classification disabled. BLS detection and visualization will still work.")
 
 # Sidebar Layout
 st.sidebar.image("https://img.icons8.com/color/96/000000/telescope.png", width=80)
