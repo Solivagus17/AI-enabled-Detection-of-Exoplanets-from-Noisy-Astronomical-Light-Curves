@@ -1,7 +1,7 @@
 ---
 title: ExoHunter — TESS Exoplanet Transit Detector
 emoji: 🔭
-colorFrom: orange
+colorFrom: yellow
 colorTo: indigo
 sdk: docker
 app_port: 7860
