@@ -1,6 +1,6 @@
 streamlit
 numpy>=1.23.5,<2.0
-tensorflow-cpu>=2.13.0,<2.16.0
+tensorflow-cpu==2.15.0
 lightkurve>=2.4.0
 astropy>=5.3.0
 astroquery>=0.4.6
