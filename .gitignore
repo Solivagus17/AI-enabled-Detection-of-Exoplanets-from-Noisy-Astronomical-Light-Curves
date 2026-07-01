@@ -17,3 +17,29 @@ pipeline/data/test_synthetic_3.py
 .DS_Store
 Thumbs.db
 failed.txt
+
+# Sensitive / secret files
+.env
+.env.*
+*.env
+secrets.json
+secrets.yaml
+secrets.toml
+config.secret.*
+credentials.json
+*_credentials.json
+service_account*.json
+
+# API keys / tokens (never commit these)
+*.key
+*.pem
+*.p12
+*.pfx
+hf_token.txt
+token.txt
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
