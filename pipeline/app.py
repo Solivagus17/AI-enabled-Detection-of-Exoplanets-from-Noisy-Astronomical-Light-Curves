@@ -107,14 +107,14 @@ def load_deep_models():
         
         if os.path.exists(clf_path):
             try:
-                clf = tf.keras.models.load_model(clf_path)
+                clf = tf.keras.models.load_model(clf_path, compile=False)
             except Exception as e:
                 # If loading .h5 failed, fall back to .keras
                 if clf_path.endswith(".h5"):
                     fallback_path = os.path.join(MODELS_DIR, "clf_model.keras")
                     if os.path.exists(fallback_path):
                         try:
-                            clf = tf.keras.models.load_model(fallback_path)
+                            clf = tf.keras.models.load_model(fallback_path, compile=False)
                         except Exception as e_fallback:
                             st.sidebar.error(f"Error loading classifier (.h5 and fallback failed): {e_fallback}")
                     else:
@@ -124,14 +124,14 @@ def load_deep_models():
                 
         if os.path.exists(ae_path):
             try:
-                ae = tf.keras.models.load_model(ae_path)
+                ae = tf.keras.models.load_model(ae_path, compile=False)
             except Exception as e:
                 # If loading .h5 failed, fall back to .keras
                 if ae_path.endswith(".h5"):
                     fallback_path = os.path.join(MODELS_DIR, "ae_model.keras")
                     if os.path.exists(fallback_path):
                         try:
-                            ae = tf.keras.models.load_model(fallback_path)
+                            ae = tf.keras.models.load_model(fallback_path, compile=False)
                         except Exception as e_fallback:
                             st.sidebar.error(f"Error loading autoencoder (.h5 and fallback failed): {e_fallback}")
                     else:
