@@ -1,3 +1,15 @@
+---
+title: ExoHunter — TESS Exoplanet Transit Detector
+emoji: 🔭
+colorFrom: orange
+colorTo: indigo
+sdk: streamlit
+sdk_version: "1.35.0"
+app_file: pipeline/app.py
+python_version: "3.11"
+pinned: false
+---
+
 # ExoHunter: AI-enabled Detection of Exoplanets from Noisy Astronomical Light Curves
 
 > **BAH 2K26 — Problem Statement 7**
