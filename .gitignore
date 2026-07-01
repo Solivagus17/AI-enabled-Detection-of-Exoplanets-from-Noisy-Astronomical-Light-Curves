@@ -10,8 +10,8 @@ pipeline/data/processed/
 test_synthetic.fits
 pipeline/data/test_synthetic_3.py
 
-# Models (optional to ignore, but we keep models inside workspace or ignore if wanted, let's keep models for instant demo use)
-# pipeline/models/
+# Models — excluded from git, trained on first run via app UI
+pipeline/models/*.keras
 
 # OS configurations
 .DS_Store
