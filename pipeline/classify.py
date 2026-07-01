@@ -56,7 +56,8 @@ def build_cnn_lstm(input_shape=(200, 1)):
     LSTM(64) -> Dense(64,relu) -> Dropout(0.3) -> Dense(4,softmax)
     """
     model = models.Sequential([
-        layers.Conv1D(64, 3, activation='relu', input_shape=input_shape),
+        layers.Input(shape=input_shape),
+        layers.Conv1D(64, 3, activation='relu'),
         layers.MaxPooling1D(2),
         layers.Conv1D(128, 3, activation='relu'),
         layers.MaxPooling1D(2),
