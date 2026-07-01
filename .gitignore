@@ -13,8 +13,7 @@ pipeline/data/test_synthetic_3.py
 # Models (optional to ignore, but we keep models inside workspace or ignore if wanted, let's keep models for instant demo use)
 # pipeline/models/
 
-# Streamlit/OS configurations
-.streamlit/
+# OS configurations
 .DS_Store
 Thumbs.db
 failed.txt
